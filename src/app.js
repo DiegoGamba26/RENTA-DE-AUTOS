@@ -1,6 +1,35 @@
 const express = require('express');
-const app = require('express');
+const path = require('path');
+const morgan = require('morgan');
+const mysql = require('mysql');
+const myConnection = require('express-myconnection');
 
-app.listen(3000, () => {
+
+const app = express();
+//Importing routes
+const customerRoutes = require('./routes/customers');
+const { urlencoded } = require('express');
+
+//Settings
+app.set('port', process.env.PORT || 3000);
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+//Middlewares
+app.use(morgan('dev'));
+app.use(myConnection(mysql, {
+    host: 'localhost',
+    user: 'root',
+    password: '123456',
+    port: 3306,
+    database: 'crudnodejsmysql'
+
+}, 'single'));
+app.use(express.urlencoded({extended:false}))
+//Route
+app.use('/', customerRoutes);
+//Static files
+app.use(express.static(path.join(__dirname,'public')));
+//Starting the server
+app.listen(app.get('port'), () => {
     console.log('PERRITO EL SERVER ESTÁ PRENDIDO EN EL 3000');
 })
