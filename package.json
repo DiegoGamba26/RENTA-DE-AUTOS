@@ -1,5 +1,28 @@
 {
   "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "express-myconnection": "^1.0.4",
+    "morgan": "^1.10.0",
     "mysql": "^2.18.1"
-  }
+  },
+  "name": "renta",
+  "description": "",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DiegoGamba26/RENTA-DE-AUTOS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DiegoGamba26/RENTA-DE-AUTOS/issues"
+  },
+  "homepage": "https://github.com/DiegoGamba26/RENTA-DE-AUTOS#readme"
 }
